@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Password Cracking Admin</title>
+	<link href="https://fonts.googleapis.com/css?family=Space+Mono:400,400i|Work+Sans|Work+Sans+Light" rel="stylesheet">
+	<style type="text/css">
+		html {
+			font-family: 'Work Sans';
+			font-weight: 300;
+		}
+
+		th {
+			font-weight: 600;
+		}
+
+		th, td {
+			padding: 10px 30px;
+			border-bottom: 1px dashed grey;
+		}
+
+		table {
+			max-width: 1200px;
+			margin: 50px auto;
+			border: none;
+		}
+
+		#graph {
+			display: block;
+			margin: 50px auto 0px auto;
+
+		}
+
+		tr.dead {
+			background-color: #f9f9f9;
+		}
+	</style>
+	<script src="lib/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<canvas id="graph" width="500" height="300"></canvas>
+		<table cellspacing="0" cellpadding="0">
+			 <tr>
+			    <th>Progress</th>
+			    <th>Nodes</th>
+			    <th>CPUs</th>
+			    <th>Hashrate</th>
+
+			 </tr>
+			 <tr>
+			 	<td>{{ percentProgress }}%</td>
+			 	<td>{{ numLiveNodes }}</td>
+			 	<td>{{ cpus() }}</td>
+			 	<td>{{ parseInt(networkHashrate() / 1000) }} KH/s </td>
+			 </tr>
+		</table>
+		<table v-if="nodes.length > 0" cellspacing="0" cellpadding="0">
+			 <tr>
+			    <th>Node</th>
+			    <th>Hashes</th>
+			    <th>Hashrate</th>
+			    <th>Passwords</th>
+			    <th>User</th>
+			 </tr>
+			 <tr v-for="(node, index) in sortedNodes" v-bind:class="{ dead: !node.alive }">
+			 	<td>{{ node.orderAdded }}</td>
+			 	<td>{{ node.hashCount }}</td>
+			 	<td v-if="node.alive">{{ parseInt(node.hashesPerSecond / 1000) }} KH/s</td>
+			 	<td v-else="">--</td>
+			 	<td>{{ node.cracked.length }}</td>
+			 	<td>{{ sortedUsers[index] }}</td>
+			 </tr>
+		</table>
+	</div>
+	<script src="lib/smoothie.js"></script>
+	<script src="/socket.io/socket.io.js" type="text/javascript"></script>
+	<script src="main.js" type="text/javascript"></script>
+	<script src="graph.js" type="text/javascript"></script>
+</body>
+</html>
