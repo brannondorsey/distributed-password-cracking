@@ -24,16 +24,12 @@ socket.on('hashes', hashes => {
 			}
 
 			workers.push(worker)
-
-			console.log('asking for more passwords on page load')
-			console.log(`waiting workers: ${waitingWorkerIds.length}`)
 			waitingWorkerIds.push(worker.id)
 			socket.emit('more passwords')
 		}
 	}
 
 	socket.on('passwords', passwords => {
-		// console.log('received passwordconst
 		const worker = getWaitingWorker()
 		if (worker) {
 			worker.postMessage({
@@ -64,7 +60,6 @@ function handleWorkerMessage(worker, event) {
 		}
 		socket.emit('update', hashInfo)
 	} else if (event.data.type == 'found') {
-		// console.log(`found ${event.data.password}`)
 		socket.emit('found', event.data.password)
 	} else if (event.data.type == 'finished') {
 		socket.emit('more passwords')

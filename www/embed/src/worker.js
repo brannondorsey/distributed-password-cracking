@@ -20,13 +20,11 @@ function tick(hashCount) {
 }
 
 function crack(passwords, hashes) {
-
-	console.log(`cracking ${hashes.length} hashes with ${passwords.length} passwords`)
 	
 	hashes.forEach((hash, i) => {
 
 		passwords.forEach((password, j) => {
-			
+
 			hashesPerSecond++
 			hashCount++
 
