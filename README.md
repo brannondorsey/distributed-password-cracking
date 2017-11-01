@@ -10,7 +10,7 @@ Borrow CPU cycles from visitor's web browsers to crack MD5 password hashes. Embe
 <iframe src="YOUR_WEBSITE.com:3000/embed" style="display:none">
 ```
 
-This is proof-of-concept code for the [Browser as Botnet talk](http://radicalnetworks.org/participants/brannon-dorsey) at [Radical Networks 2017](http://radicalnetworks.org/). As such, it **is not** optimized. There are far [more efficient ways](https://github.com/brannondorsey/naive-hashcat) to crack passwords if that is your goal. This project is intended to illustrate how compute jobs can be massively distributed across browsers.
+This is proof-of-concept code for the [Browser as Botnet talk](http://radicalnetworks.org/participants/brannon-dorsey) ([video](https://livestream.com/internetsociety/radnets17/videos/164720367)) at [Radical Networks 2017](http://radicalnetworks.org/). As such, it **is not** optimized. There are far [more efficient ways](https://github.com/brannondorsey/naive-hashcat) to crack passwords if that is your goal. This project is intended to illustrate how compute jobs can be massively distributed across browsers.
 
 **DISCLAIMER: This software is for educational purposes only. This software should not be used for illegal activity. The author is not responsible for its use. Don't be a dick.**
 
