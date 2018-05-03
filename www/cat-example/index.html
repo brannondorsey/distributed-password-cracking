@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Embed</title>
+	<script src="/socket.io/socket.io.js" type="text/javascript"></script>
+	<script src="src/utils.js" type="text/javascript"></script>
+	<script src="main.js" type="text/javascript"></script>
+	<style>
+
+		body {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		iframe {
+			display: block;       /* iframes are inline by default */
+    	background: #000;
+    	border: none;         /* Reset default border */
+    	height: 100vh;        /* Viewport-relative units */
+    	width: 100vw;
+			border: 0px;
+		}
+		
+	</style>
+</head>
+<body>
+	<iframe src="https://giphy.com/search/cats"></iframe>
+</body>
+</html>
